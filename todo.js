@@ -2,10 +2,9 @@ const todoForm = document.getElementById("todo-form");
 const todoInput = document.getElementById("todo-input");
 const todoList = document.getElementById("todo-list");
 
-function addTodo(text, checked = false) {
+function addTodo(text) {
     const li = document.createElement("li");
     li.textContent = text;
-    if (checked) li.classList.add("checked");
 
     const close = document.createElement("span");
     close.className = "close";
@@ -34,14 +33,3 @@ todoForm.addEventListener("submit", e => {
     addTodo(text);
     todoInput.value = "";
 });
-
-// Sample entries matching the mockup
-[
-    ["Register for classes", true],
-    ["Start Phase 1.1.1", true],
-    ["Start Phase 1.1.2", true],
-    ["Start Phase 1.2", true],
-    ["Complete Phase 1.1.1", true],
-    ["Complete Phase 1.1.1", false],
-    ["Complete Phase 1.2", false],
-].forEach(([text, checked]) => addTodo(text, checked));
