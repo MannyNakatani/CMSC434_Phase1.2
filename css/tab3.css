@@ -1,0 +1,33 @@
+#tab3 p {
+    font-size: 16px;
+    margin: 0;
+    margin-left: -12px;
+    margin-right: -12px;
+}
+
+#tab3 .yellow-black {
+    color: yellow;
+    background-color: black;
+    padding: 5px;
+}
+
+#tab3 .purple-yellow {
+    color: purple;
+    background-color: yellow;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+#tab3 .pie-chart {
+    width: 325px;
+    height: 325px;
+    border-radius: 50%;
+    border: 2px solid white;
+
+    background: conic-gradient(
+        red 0% 10%,
+        blue 10% 60%,
+        yellow 60% 85%,
+        green 85% 100%
+    );
+}
