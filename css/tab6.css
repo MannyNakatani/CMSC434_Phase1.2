@@ -1,0 +1,80 @@
+#tab6 #todo-form {
+    display: flex;
+    gap: 4px;
+    padding-bottom: 16px;
+}
+
+#tab6 #todo-input {
+    width: 60%;
+    padding: 4px;
+    font-size: 24px;
+    border: 1px solid #555;
+}
+
+#tab6 #todo-form button {
+    align-self: center;
+    font-size: 18px;
+    padding: 2px 6px;
+    border: 2px solid #000;
+    background: #ddd;
+    cursor: pointer;
+}
+
+#tab6 #todo-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#tab6 #todo-list li {
+    position: relative;
+    padding: 12px 48px 12px 36px;
+    font-family: "Times New Roman", serif;
+    font-size: 20px;
+    background: #eee;
+    cursor: pointer;
+    user-select: none;
+}
+
+#tab6 #todo-list li:nth-child(odd) {
+    background: #f9f9f9;
+}
+
+#tab6 #todo-list li:hover {
+    background: #ddd;
+}
+
+#tab6 #todo-list li.checked {
+    background: #888;
+    color: #fff;
+    text-decoration: line-through;
+}
+
+#tab6 #todo-list li.checked::before {
+    content: "";
+    position: absolute;
+    left: 16px;
+    top: 12px;
+    width: 6px;
+    height: 12px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+#tab6 #todo-list .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    color: inherit;
+    font-size: 20px;
+}
+
+#tab6 #todo-list .close:hover {
+    background: #f44336;
+    color: #fff;
+}
