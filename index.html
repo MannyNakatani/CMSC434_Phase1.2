@@ -1,27 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
+    <meta name="viewport" content="width=device-width, intitial-scale=1">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kitchen Kompanion Prototype</title>
+    <title>CMSC343 Phase 1.2</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/tab5.css">
 </head>
 
 <body>
-    <div class="container">
-        <main>
-            <div class="text-tab">
-                <h1>-Text Screen-</h1>
+    <div class="phone">
+        <div class="screen">
+            <div class="tab-page" id="tab1">
+                <h2>text</h2>
+                <p>tab 1</p>
             </div>
-        </main>
 
-        <nav>
+            <div class="tab-page" id="tab2">
+                <h2>text</h2>
+                <p>tab 2</p>
+            </div>
 
+            <div class="tab-page" id="tab3">
+                <h2>text</h2>
+                <p>tab 3</p>
+            </div>
+
+            <div class="tab-page" id="tab4">
+                <h2>text</h2>
+                <p>tab 4</p>
+            </div>
+
+            <div class="tab-page" id="tab5">
+                <h2>Choices</h2>
+                <p>Pick a meal</p>
+                <label class="container">Breakfast
+                    <input type="radio" name="meal" value="breakfast" checked>
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Lunch
+                    <input type="radio" name="meal" value="lunch">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Dinner
+                    <input type="radio" name="meal" value="dinner">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <p>Pick a food:</p>
+                <select id="choiceSelect">
+                    <option value="Pizza">Pizza</option>
+                    <option value="Sushi">Sushi</option>
+                    <option value="Burger">Burger</option>
+                    <option value="Pasta">Pasta</option>
+                    <option value="Salad">Salad</option>
+                </select>
+                <br>
+                
+                <button id="choiceButton" onclick="showChoices()">Submit</button>
+                <p id="choiceResult"></p>
+            </div>
+
+            <div class="tab-page" id="tab6">
+                <h2>text</h2>
+                <p>tab 1</p>
+            </div>
+        </div>
+
+        <nav class="navbar">
+            <button class="tablink" onclick="openTab(event, 'tab1')"><span class="nav-icon">Text</span></button>
+            <button class="tablink" onclick="openTab(event, 'tab2')"><span class="nav-icon">Text</span></button>
+            <button class="tablink" onclick="openTab(event, 'tab3')"><span class="nav-icon">Text</span></button>
+            <button class="tablink" onclick="openTab(event, 'tab4')"><span class="nav-icon">Text</span></button>
+            <button class="tablink" onclick="openTab(event, 'tab5')"><span class="nav-icon">Text</span></button>
+            <button class="tablink" onclick="openTab(event, 'tab6')"><span class="nav-icon">Text</span></button>
         </nav>
     </div>
-
+<script src="js/main.js"></script>
+<script src="js/tab5.js"></script>
 </body>
-
 </html>
