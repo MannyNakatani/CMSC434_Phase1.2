@@ -1,0 +1,48 @@
+#tab5 .container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    user-select: none;
+}
+
+#tab5 .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+#tab5 .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+#tab5 .container:hover input ~ .checkmark { background-color: #ccc;}
+#tab5 .container input:checked ~ .checkmark { background-color: #2196F3;}
+
+#tab5 .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    top: 7px;
+    left: 7px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+#tab5 .container input:checked ~ .checkmark:after { display: block; }
+
+#tab5 #choiceSelect { font-size: 16px; padding: 6px; margin: 8px 0 16px; }
+#tab5 #choiceButton { font-size: 16px; padding: 8px 16px; cursor: pointer; }
+#tab5 #choiceResult { font-size: 18px; margin-top: 12px; }
