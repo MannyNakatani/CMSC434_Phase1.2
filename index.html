@@ -48,7 +48,20 @@
 
             <div class="tab-page" id="tab4">
                 <h1>Profile</h1>
-                <p>tab 4</p>
+
+                <div class="profile">
+                    <img
+                        src="https://www.cs.umd.edu/class/fall2026/cmsc434/P1_2/SmileyFace.png"
+                        alt="Smiley Face"
+                        onclick="showNotification()"
+                    >
+                    <p><b>Smiley Face Name</b></p>
+                </div>
+
+                <div id="tab4-notification">
+                    <span>Hello! You clicked the smiley face!</span>
+                    <button onclick="closeNotification()">×</button>
+                </div>
             </div>
 
             <div class="tab-page" id="tab5">
