@@ -1,145 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>CMSC434 Phase 1.2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kitchen Kompanion</title>
 
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/tab1.css">
-    <link rel="stylesheet" href="css/tab2.css">
-    <link rel="stylesheet" href="css/tab3.css">
-    <link rel="stylesheet" href="css/tab4.css">
-    <link rel="stylesheet" href="css/tab5.css">
     <link rel="stylesheet" href="css/tab6.css">
 </head>
 
 <body>
     <div class="phone">
         <div class="screen">
-            <div class="tab-page" id="tab1">
-                <h1>Text</h1>
-                <p>Text</p>
-                <p>Text</p>
-                <p>Text</p>
-                <p>Text</p>
-                <p>Text</p>
-                <p>Text</p>
-                <p>Text</p>
-                <p>Text</p>
-                <p>Text</p>
-                <p>Text</p>
-                <p>Text</p>
-                <p>Text</p>
-                <p>Text</p>
-                <p>Text</p>
-            </div>
-
-            <div class="tab-page" id="tab2">
-                <h1>LR</h1>
-                <p>Down Here</p>
-            </div>
-
-            <div class="tab-page" id="tab3">
-                <h1>Colors</h1>
-                <p class="yellow-black">Some text yellow on black</p>
-                <p class="purple-yellow">Some text purple on yellow</p>
-                <div class="pie-chart"></div>
-            </div>
-
-            <div class="tab-page" id="tab4">
-                <h1>Profile</h1>
-
-                <div class="profile">
-                    <img
-                        src="https://www.cs.umd.edu/class/fall2026/cmsc434/P1_2/SmileyFace.png"
-                        alt="Smiley Face Picture"
-                        onclick="showNotification()"
-                    >
-                    <p><b>Smiley F. Name</b></p>
-                </div>
-
-                <div id="tab4-notification">
-                    <span>You pressed the smiley face congrats</span>
-                    <button onclick="closeNotification()">×</button>
-                </div>
-            </div>
-
-            <div class="tab-page" id="tab5">
-                <h1>Choices</h1>
-                <p>Pick a meal</p>
-                <label class="container">Breakfast
-                    <input type="radio" name="meal" value="breakfast" checked>
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Lunch
-                    <input type="radio" name="meal" value="lunch">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Dinner
-                    <input type="radio" name="meal" value="dinner">
-                    <span class="checkmark"></span>
-                </label>
-                
-                <p>Pick a food:</p>
-                <select id="choiceSelect">
-                    <option value="Pizza">Pizza</option>
-                    <option value="Sushi">Sushi</option>
-                    <option value="Burger">Burger</option>
-                    <option value="Pasta">Pasta</option>
-                    <option value="Salad">Salad</option>
-                </select>
-                <br>
-                
-                <button id="choiceButton" onclick="showChoices()">Submit</button>
-                <p id="choiceResult"></p>
-            </div>
-
             <div class="tab-page" id="tab6">
-                <h1>ToDo</h1>
-                <form id="todo-form">
-                    <input type="text" id="todo-input" placeholder="New entry..." autocomplete="off">
-                    <button type="submit">Add</button>
+                <h1>Shopping List</h1>
+                <p id="shop-count"></p>
+
+                <form id="shop-form" autocomplete="off" novalidate>
+                    <input type="text" id="shop-name" placeholder="Add an item (e.g. milk)" aria-label="Item name">
+                    <div class="shop-row">
+                        <input type="number" id="shop-qty" value="1" min="1" aria-label="Quantity">
+                        <select id="shop-unit" aria-label="Unit">
+                            <option>item(s)</option>
+                            <option>gallon</option>
+                            <option>lb</option>
+                            <option>oz</option>
+                            <option>pack</option>
+                            <option>dozen</option>
+                        </select>
+                        <button type="submit">Add</button>
+                    </div>
+                    <p id="shop-error"></p>
                 </form>
-                <ul id="todo-list"></ul>
+
+                <ul id="shop-list"></ul>
+            </div>
+
+            <div class="tab-page" id="fridge">
+                <h1>Fridge</h1>
+            </div>
+
+            <div class="tab-page" id="recipes">
+                <h1>Recipes</h1>
+            </div>
+
+            <div class="tab-page" id="household">
+                <h1>Household</h1>
             </div>
         </div>
 
         <nav class="navbar">
-             <button class="tablink" onclick="openTab(event, 'tab1')">
-                <img class="nav-icon" src="images/scroll-bar.png">
-                <span>Text</span>
-             </button>
-
-            <button class="tablink" onclick="openTab(event, 'tab2')">
-                <img class="nav-icon" src="images/LR.png">
-                <span>LR</span>
-            </button>
-        
-            <button class="tablink" onclick="openTab(event, 'tab3')">
-                <img class="nav-icon" src="images/palette.png">
-                <span>Colors</span>
-            </button>
-        
-            <button class="tablink" onclick="openTab(event, 'tab4')">
-                <img class="nav-icon" src="images/user.png">
-                <span>Profile</span>
-            </button>
-        
-            <button class="tablink" onclick="openTab(event, 'tab5')">
-                <img class="nav-icon" src="images/choice.png">
-                <span>Choices</span>
-            </button>
-        
             <button class="tablink" onclick="openTab(event, 'tab6')">
-                <img class="nav-icon" src="images/checklist.png">
-                <span>ToDo</span>
+                <img class="nav-icon" src="images/checklist.png" alt="">
+                <span>Shopping</span>
+            </button>
+
+            <button class="tablink" onclick="openTab(event, 'fridge')">
+                <img class="nav-icon" src="images/fridge.png" alt="">
+                <span>Fridge</span>
+            </button>
+
+            <button class="tablink" onclick="openTab(event, 'recipes')">
+                <img class="nav-icon" src="images/scroll-bar.png" alt="">
+                <span>Recipes</span>
+            </button>
+
+            <button class="tablink" onclick="openTab(event, 'household')">
+                <img class="nav-icon" src="images/user.png" alt="">
+                <span>Household</span>
             </button>
         </nav>
     </div>
+
 <script src="js/main.js"></script>
-<script src="js/tab4.js"></script>
-<script src="js/tab5.js"></script>
 <script src="js/tab6.js"></script>
 </body>
 </html>
