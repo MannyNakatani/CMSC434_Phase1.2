@@ -1,35 +1,81 @@
-const todoForm = document.getElementById("todo-form");
-const todoInput = document.getElementById("todo-input");
-const todoList = document.getElementById("todo-list");
+const shopForm = document.getElementById("shop-form");
+const shopName = document.getElementById("shop-name");
+const shopQty = document.getElementById("shop-qty");
+const shopUnit = document.getElementById("shop-unit");
+const shopError = document.getElementById("shop-error");
+const shopList = document.getElementById("shop-list");
+const shopCount = document.getElementById("shop-count");
 
-function addTodo(text) {
-    const li = document.createElement("li");
-    li.textContent = text;
+const shoppingItems = [
+    { name: "Eggs", qty: 1, unit: "dozen", checked: false },
+    { name: "Bread", qty: 1, unit: "item(s)", checked: true }
+];
 
-    const close = document.createElement("span");
-    close.className = "close";
-    close.textContent = "×";
-    li.appendChild(close);
+function renderList() {
+    shopList.innerHTML = "";
 
-    todoList.appendChild(li);
+    shoppingItems.forEach(function (item, index) {
+        const li = document.createElement("li");
+        if (item.checked) li.classList.add("checked");
+
+        const name = document.createElement("span");
+        name.className = "name";
+        name.textContent = item.name;
+
+        const qty = document.createElement("span");
+        qty.className = "qty";
+        qty.textContent = item.qty + " " + item.unit;
+
+        const close = document.createElement("span");
+        close.className = "close";
+        close.textContent = "×";
+        close.setAttribute("aria-label", "Remove " + item.name);
+
+        li.append(name, qty, close);
+        li.dataset.index = index;
+        shopList.appendChild(li);
+    });
+
+    const left = shoppingItems.filter(function (i) { return !i.checked; }).length;
+    shopCount.textContent = left + " of " + shoppingItems.length + " items left to buy";
 }
 
-// Clicking an item toggles it; clicking the × removes it
-todoList.addEventListener("click", e => {
+shopList.addEventListener("click", function (e) {
+    const li = e.target.closest("li");
+    if (!li) return;
+    const index = Number(li.dataset.index);
+
     if (e.target.classList.contains("close")) {
-        e.target.parentElement.remove();
-    } else if (e.target.tagName === "LI") {
-        e.target.classList.toggle("checked");
+        shoppingItems.splice(index, 1);
+    } else {
+        shoppingItems[index].checked = !shoppingItems[index].checked;
     }
+    renderList();
 });
 
-todoForm.addEventListener("submit", e => {
+shopForm.addEventListener("submit", function (e) {
     e.preventDefault();
-    const text = todoInput.value.trim();
+    const text = shopName.value.trim();
+    const qty = parseInt(shopQty.value, 10);
+
     if (!text) {
-        alert("You must write something!");
+        shopError.textContent = "Type an item name first.";
+        shopName.focus();
         return;
     }
-    addTodo(text);
-    todoInput.value = "";
+    if (!qty || qty < 1) {
+        shopError.textContent = "Quantity must be at least 1.";
+        shopQty.focus();
+        return;
+    }
+
+    shopError.textContent = "";
+    shoppingItems.unshift({ name: text, qty: qty, unit: shopUnit.value, checked: false });
+    shopName.value = "";
+    shopQty.value = 1;
+    shopUnit.selectedIndex = 0;
+    shopName.focus();
+    renderList();
 });
+
+renderList();

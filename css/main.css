@@ -9,6 +9,8 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    background-color: #ddd;
+    font-family: Arial, sans-serif;
 }
 
 .phone {
@@ -16,8 +18,8 @@ body {
     height: var(--phone-height);
     display: flex;
     flex-direction: column;
-    background-color: pink;
-    overflow: hidden
+    background-color: #fafafa;
+    overflow: hidden;
 }
 
 .screen {
@@ -32,16 +34,16 @@ body {
 }
 
 .tab-page h1 {
-    font-family: Arial, sans-serif;
-    font-size: 36px;
+    font-size: 30px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin: 8px 0 4px;
 }
 
 .navbar {
     display: flex;
     height: 64px;
     background-color: #eee;
+    border-top: 1px solid #ccc;
 }
 
 .tablink {
@@ -52,14 +54,14 @@ body {
     justify-content: center;
     background: none;
     border: none;
-    color: #ffeb3b;
+    color: #222;
     font-family: Arial, sans-serif;
     font-size: 12px;
     cursor: pointer;
 }
 
-.tablink:hover { background-color: #2a3a8f;}
-.tablink.active { background-color: #555;}
+.tablink:hover { background-color: #ddd; }
+.tablink.active { background-color: #ccc; font-weight: bold; }
 
 .nav-icon {
     width: 24px;

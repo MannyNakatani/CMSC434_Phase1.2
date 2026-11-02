@@ -1,60 +1,84 @@
-#tab6 #todo-form {
+#tab6 #shop-count {
+    margin: 0 0 12px;
+    color: #555;
+}
+
+#tab6 #shop-form {
     display: flex;
-    gap: 4px;
-    padding-bottom: 16px;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 12px;
 }
 
-#tab6 #todo-input {
-    width: 60%;
-    padding: 4px;
-    font-size: 24px;
-    border: 1px solid #555;
+#tab6 #shop-form input,
+#tab6 #shop-form select {
+    height: 40px;
+    padding: 0 8px;
+    font-size: 16px;
+    border: 1px solid #888;
 }
 
-#tab6 #todo-form button {
-    align-self: center;
-    font-size: 18px;
-    padding: 2px 6px;
+#tab6 .shop-row {
+    display: flex;
+    gap: 6px;
+}
+
+#tab6 #shop-qty { width: 64px; }
+#tab6 #shop-unit { flex: 1; }
+
+#tab6 #shop-form button {
+    height: 40px;
+    padding: 0 16px;
+    font-size: 16px;
     border: 2px solid #000;
     background: #ddd;
     cursor: pointer;
 }
 
-#tab6 #todo-list {
+#tab6 #shop-error {
+    margin: 0;
+    min-height: 18px;
+    font-size: 14px;
+    color: #c00;
+}
+
+#tab6 #shop-list {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-#tab6 #todo-list li {
+#tab6 #shop-list li {
     position: relative;
-    padding: 12px 48px 12px 36px;
-    font-family: "Times New Roman", serif;
-    font-size: 20px;
+    padding: 10px 52px 10px 36px;
+    font-size: 18px;
     background: #eee;
     cursor: pointer;
     user-select: none;
 }
 
-#tab6 #todo-list li:nth-child(odd) {
-    background: #f9f9f9;
+#tab6 #shop-list li:nth-child(odd) { background: #f6f6f6; }
+#tab6 #shop-list li:hover { background: #ddd; }
+
+#tab6 #shop-list .qty {
+    display: block;
+    font-size: 14px;
+    color: #555;
 }
 
-#tab6 #todo-list li:hover {
-    background: #ddd;
-}
-
-#tab6 #todo-list li.checked {
+#tab6 #shop-list li.checked {
     background: #888;
     color: #fff;
-    text-decoration: line-through;
 }
 
-#tab6 #todo-list li.checked::before {
+#tab6 #shop-list li.checked .name { text-decoration: line-through; }
+#tab6 #shop-list li.checked .qty { color: #eee; }
+
+#tab6 #shop-list li.checked::before {
     content: "";
     position: absolute;
-    left: 16px;
-    top: 12px;
+    left: 14px;
+    top: 16px;
     width: 6px;
     height: 12px;
     border: solid #fff;
@@ -62,19 +86,18 @@
     transform: rotate(45deg);
 }
 
-#tab6 #todo-list .close {
+#tab6 #shop-list .close {
     position: absolute;
     right: 0;
     top: 0;
     height: 100%;
-    padding: 0 20px;
+    padding: 0 18px;
     display: flex;
     align-items: center;
-    color: inherit;
-    font-size: 20px;
+    font-size: 22px;
 }
 
-#tab6 #todo-list .close:hover {
+#tab6 #shop-list .close:hover {
     background: #f44336;
     color: #fff;
 }
