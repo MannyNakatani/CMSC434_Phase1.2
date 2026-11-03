@@ -1,33 +1,132 @@
-#tab3 p {
+
+#recipes #recipe-search {
+    margin: 8px 0;
+}
+
+#recipes #recipe-query {
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    padding: 0 10px;
     font-size: 16px;
+    border: 1px solid #888;
+    background: #fff;
+}
+
+
+#recipes #recipe-filters {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+#recipes #recipe-filter {
+    flex: 1;
+    height: 36px;
+    padding: 0 8px;
+    font-size: 14px;
+    border: 1px solid #888;
+    background: #fff;
+}
+
+/*recipe sections*/
+#recipes .recipe-section {
+    margin-bottom: 18px;
+}
+
+#recipes .recipe-section h2 {
+    margin: 12px 0 8px;
+    padding-bottom: 5px;
+    font-size: 20px;
+    border-bottom: 2px solid #ccc;
+}
+
+#recipes .recipe-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/*individual recipe cards*/
+#recipes .recipe-card {
+    padding: 10px;
+    background: #eee;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#recipes .recipe-card:nth-child(even) {
+    background: #f6f6f6;
+}
+
+#recipes .recipe-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+#recipes .recipe-heading h3 {
+    margin: 0 0 5px;
+    font-size: 17px;
+}
+
+#recipes .recipe-time {
+    margin: 0 0 8px;
+    color: #555;
+    font-size: 13px;
+}
+
+/*favorite button*/
+#recipes .favorite-button {
+    flex-shrink: 0;
+    padding: 3px 7px;
+    border: 1px solid #888;
+    border-radius: 4px;
+    background: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#recipes .favorite-button.is-favorite {
+    background: #fff0c2;
+    border-color: #b28a25;
+}
+
+/*ingredients and fridge availability*/
+#recipes .recipe-ingredients {
     margin: 0;
-    margin-left: -12px;
-    margin-right: -12px;
+    padding-left: 18px;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
-#tab3 .yellow-black {
-    color: yellow;
-    background-color: black;
-    padding: 5px;
+#recipes .recipe-ingredients li {
+    margin: 2px 0;
 }
 
-#tab3 .purple-yellow {
-    color: purple;
-    background-color: yellow;
-    padding: 5px;
-    margin-bottom: 20px;
+#recipes .ingredient-expiring {
+    color: #a33;
+    font-weight: bold;
 }
 
-#tab3 .pie-chart {
-    width: 325px;
-    height: 325px;
-    border-radius: 50%;
-    border: 2px solid white;
+#recipes .ingredient-expiring .days-left {
+    white-space: nowrap;
+}
 
-    background: conic-gradient(
-        red 0% 10%,
-        blue 10% 60%,
-        yellow 60% 85%,
-        green 85% 100%
-    );
+#recipes .recipe-availability {
+    margin: 8px 0 0;
+    padding-top: 6px;
+    border-top: 1px solid #ccc;
+    color: #444;
+    font-size: 13px;
+}
+
+/*empty search results*/
+#recipes #recipe-empty {
+    margin: 16px 0;
+    color: #555;
+    font-size: 14px;
 }
