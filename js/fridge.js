@@ -1,8 +1,6 @@
 const fridgeCount = document.getElementById("fridge-count");
 const fridgeList = document.getElementById("fridge-list");
-const fridgeSearch = document.getElementById("fridge-search");
-const fridgeSearchBtn = document.getElementById("fridge-search-btn");
-const fridgeClearBtn = document.getElementById("fridge-clear-btn");
+const fridgeQuery = document.getElementById("fridge-query");
 
 const fridgeItems = [
     { name: "Eggs", qty: 1, unit: "dozen"},
@@ -39,11 +37,11 @@ function renderFridge(items = fridgeItems) {
         deleteBtn.type = "button";
 
         minusBtn.addEventListener("click", function() {
-            if (item.qty > 0) {
+            if (item.qty > 1) {
                 item.qty--;
                 renderFridge(fridgeItems.filter(function(i) {
                     return i.name.toLowerCase().includes(
-                        fridgeSearch.value.trim().toLowerCase()
+                        fridgeQuery.value.trim().toLowerCase()
                     );
                 }));
             }
@@ -53,7 +51,7 @@ function renderFridge(items = fridgeItems) {
             item.qty++;
             renderFridge(fridgeItems.filter(function(i) {
                 return i.name.toLowerCase().includes(
-                    fridgeSearch.value.trim().toLowerCase()
+                    fridgeQuery.value.trim().toLowerCase()
                 );
             }));
         });
@@ -65,7 +63,7 @@ function renderFridge(items = fridgeItems) {
                 fridgeItems.splice(index, 1);
             }
 
-            renderFridge();
+            fridgeQuery.dispatchEvent(new Event("input"));
         });
 
         li.appendChild(name);
@@ -79,19 +77,14 @@ function renderFridge(items = fridgeItems) {
     fridgeCount.textContent = fridgeItems.length + " items in fridge";
 }
 
-fridgeSearchBtn.addEventListener("click", function() {
-    const searchText = fridgeSearch.value.trim().toLowerCase();
+fridgeQuery.addEventListener("input", function() {
+    const searchText = fridgeQuery.value.trim().toLowerCase();
 
     const filteredItems = fridgeItems.filter(function(item) {
         return item.name.toLowerCase().includes(searchText);
     });
 
     renderFridge(filteredItems);
-});
-
-fridgeClearBtn.addEventListener("click", function() {
-    fridgeSearch.value = "";
-    renderFridge();
 });
 
 renderFridge();

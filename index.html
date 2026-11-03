@@ -41,9 +41,9 @@
             <div class="tab-page" id="fridge">
                 <h1>Fridge</h1>
 
-                <input type="text" id="fridge-search" placeholder="Search for an item">
-                <button type="button" id="fridge-search-btn">Search</button>
-                <button type="button" id="fridge-clear-btn">Clear</button>
+                <div id="fridge-search">
+                    <input type="search" id="fridge-query" placeholder="Search for an item" aria-label="Search for an item">
+                </div>
                 <p id="fridge-count"></p>
                 <ul id="fridge-list"></ul>
             </div>
@@ -122,7 +122,7 @@
     </div>
 
 <script src="js/main.js"></script>
-    <script src="js/tab3.js"></script>
+<script src="js/tab3.js"></script>
 <script src="js/tab6.js"></script>
 <script src="js/fridge.js"></script>
 </body>

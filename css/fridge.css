@@ -1,19 +1,16 @@
 
 #fridge #fridge-search {
-    height: 40px;
-    padding: 0 8px;
-    font-size: 16px;
-    border: 1px solid #888;
+    margin: 8px 0;
 }
 
-#fridge #fridge-search-btn,
-#fridge #fridge-clear-btn {
+#fridge #fridge-query {
+    box-sizing: border-box;
+    width: 100%;
     height: 40px;
-    padding: 0 16px;
+    padding: 0 10px;
     font-size: 16px;
-    border: 2px solid #000;
-    background: #ddd;
-    cursor: pointer;
+    border: 1px solid #888;
+    background: #fff;
 }
 
 #fridge #fridge-list {
@@ -22,9 +19,16 @@
     padding: 0;
 }
 
+#fridge #fridge-list .name {
+    flex: 1;
+}
+
 #fridge #fridge-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
     position: relative;
-    padding: 10px 52px 10px 36px;
     font-size: 18px;
     background: #eee;
     cursor: pointer;
@@ -40,7 +44,7 @@
     color: #555;
 }
 
-#fridge #fridge-list .minus-btn, #fridge #fridge-list .plus-btn {
+#fridge #fridge-list .minus-btn, #fridge #fridge-list .plus-btn, #fridge #fridge-list .delete-btn {
     background-color: lightgray;
     border-radius: 5px;
     cursor: pointer;
