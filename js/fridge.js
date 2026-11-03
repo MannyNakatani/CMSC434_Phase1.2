@@ -37,7 +37,7 @@ function renderFridge(items = fridgeItems) {
         deleteBtn.type = "button";
 
         minusBtn.addEventListener("click", function() {
-            if (item.qty > 0) {
+            if (item.qty > 1) {
                 item.qty--;
                 renderFridge(fridgeItems.filter(function(i) {
                     return i.name.toLowerCase().includes(

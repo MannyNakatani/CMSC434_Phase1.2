@@ -19,9 +19,16 @@
     padding: 0;
 }
 
+#fridge #fridge-list .name {
+    flex: 1;
+}
+
 #fridge #fridge-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
     position: relative;
-    padding: 10px 52px 10px 36px;
     font-size: 18px;
     background: #eee;
     cursor: pointer;
