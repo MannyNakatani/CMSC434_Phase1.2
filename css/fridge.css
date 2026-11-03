@@ -1,0 +1,47 @@
+
+#fridge #fridge-search {
+    height: 40px;
+    padding: 0 8px;
+    font-size: 16px;
+    border: 1px solid #888;
+}
+
+#fridge #fridge-search-btn,
+#fridge #fridge-clear-btn {
+    height: 40px;
+    padding: 0 16px;
+    font-size: 16px;
+    border: 2px solid #000;
+    background: #ddd;
+    cursor: pointer;
+}
+
+#fridge #fridge-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#fridge #fridge-list li {
+    position: relative;
+    padding: 10px 52px 10px 36px;
+    font-size: 18px;
+    background: #eee;
+    cursor: pointer;
+    user-select: none;
+}
+
+#fridge #fridge-list li:nth-child(odd) { background: #f6f6f6; }
+#fridge #fridge-list li:hover { background: #ddd; }
+
+#fridge #fridge-list .qty {
+    display: block;
+    font-size: 14px;
+    color: #555;
+}
+
+#fridge #fridge-list .minus-btn, #fridge #fridge-list .plus-btn {
+    background-color: lightgray;
+    border-radius: 5px;
+    cursor: pointer;
+}

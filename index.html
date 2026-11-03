@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/tab6.css">
+    <link rel="stylesheet" href="css/fridge.css">
 </head>
 
 <body>
@@ -38,6 +39,12 @@
 
             <div class="tab-page" id="fridge">
                 <h1>Fridge</h1>
+
+                <input type="text" id="fridge-search" placeholder="Search for an item">
+                <button type="button" id="fridge-search-btn">Search</button>
+                <button type="button" id="fridge-clear-btn">Clear</button>
+                <p id="fridge-count"></p>
+                <ul id="fridge-list"></ul>
             </div>
 
             <div class="tab-page" id="recipes">
@@ -74,5 +81,6 @@
 
 <script src="js/main.js"></script>
 <script src="js/tab6.js"></script>
+<script src="js/fridge.js"></script>
 </body>
 </html>
