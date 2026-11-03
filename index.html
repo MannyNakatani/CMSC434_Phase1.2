@@ -6,6 +6,7 @@
     <title>Kitchen Kompanion</title>
 
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/tab3.css">
     <link rel="stylesheet" href="css/tab6.css">
     <link rel="stylesheet" href="css/fridge.css">
 </head>
@@ -49,6 +50,47 @@
 
             <div class="tab-page" id="recipes">
                 <h1>Recipes</h1>
+
+                <div id="recipe-search">
+                    <input
+                        type="search"
+                        id="recipe-query"
+                        placeholder="Search recipes..."
+                        aria-label="Search recipes by name"
+                    >
+                </div>
+
+            
+                <div id="recipe-filters">
+                    <label for="recipe-filter">Show:</label>
+                    <select id="recipe-filter">
+                        <option value="all">All recipes</option>
+                        <option value="favorites">Favorites</option>
+                        <option value="expiring">Use soon</option>
+                    </select>
+                </div>
+
+
+                <div id="recipe-results">
+                    <p id="recipe-empty" hidden>
+                        No recipes found. Try another search or filter.
+                    </p>
+
+                    <section class="recipe-section" id="expiring-section">
+                        <h2>Use Soon</h2>
+                        <div id="expiring-recipes" class="recipe-list"></div>
+                    </section>
+
+                    <section class="recipe-section" id="favorites-section">
+                        <h2>Favorites</h2>
+                        <div id="favorite-recipes" class="recipe-list"></div>
+                    </section>
+
+                    <section class="recipe-section" id="all-section">
+                        <h2>All Recipes</h2>
+                        <div id="all-recipes" class="recipe-list"></div>
+                    </section>
+                </div>
             </div>
 
             <div class="tab-page" id="household">
@@ -80,6 +122,7 @@
     </div>
 
 <script src="js/main.js"></script>
+    <script src="js/tab3.js"></script>
 <script src="js/tab6.js"></script>
 <script src="js/fridge.js"></script>
 </body>
