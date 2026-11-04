@@ -15,27 +15,65 @@
     <div class="phone">
         <div class="screen">
             <div class="tab-page" id="tab6">
-                <h1>Shopping List</h1>
-                <p id="shop-count"></p>
 
-                <form id="shop-form" autocomplete="off" novalidate>
-                    <input type="text" id="shop-name" placeholder="Add an item (e.g. milk)" aria-label="Item name">
-                    <div class="shop-row">
-                        <input type="number" id="shop-qty" value="1" min="1" aria-label="Quantity">
-                        <select id="shop-unit" aria-label="Unit">
-                            <option>item(s)</option>
-                            <option>gallon</option>
-                            <option>lb</option>
-                            <option>oz</option>
-                            <option>pack</option>
-                            <option>dozen</option>
-                        </select>
-                        <button type="submit">Add</button>
+                <div id="shop-main" class="shop-view">
+                    <h1>Shopping List</h1>
+                    <p id="shop-count"></p>
+                    <div id="shop-notice" role="status" hidden></div>
+
+                    <form id="shop-form" autocomplete="off" novalidate>
+                        <input type="text" id="shop-name" placeholder="Add an item (e.g. milk)" aria-label="Item name">
+                        <div class="shop-row">
+                            <input type="number" id="shop-qty" value="1" min="1" aria-label="Quantity">
+                            <select id="shop-unit" aria-label="Unit">
+                                <option>item(s)</option>
+                                <option>gallon</option>
+                                <option>lb</option>
+                                <option>oz</option>
+                                <option>pack</option>
+                                <option>dozen</option>
+                            </select>
+                            <button type="submit">Add</button>
+                        </div>
+                        <p id="shop-error"></p>
+                    </form>
+
+                    <ul id="shop-list"></ul>
+
+                    <div class="shop-actions">
+                        <button type="button" id="shop-done-btn" class="shop-primary">Done shopping</button>
+                        <button type="button" id="shop-saved-btn" class="shop-secondary">Saved lists</button>
                     </div>
-                    <p id="shop-error"></p>
-                </form>
+                </div>
 
-                <ul id="shop-list"></ul>
+                <div id="shop-done-view" class="shop-view" hidden>
+                    <button type="button" class="shop-back">&lsaquo; Back to list</button>
+                    <h1>Put Groceries Away</h1>
+                    <p class="shop-help">These items will move to your Fridge. Check the expiration date and who each one belongs to.</p>
+
+                    <ul id="putaway-list"></ul>
+                    <p id="putaway-leftover"></p>
+                    <p id="putaway-error" class="shop-msg error"></p>
+
+                    <button type="button" id="putaway-confirm" class="shop-primary">Move to Fridge</button>
+                </div>
+
+                <div id="shop-saved-view" class="shop-view" hidden>
+                    <button type="button" class="shop-back">&lsaquo; Back to list</button>
+                    <h1>Saved Lists</h1>
+
+                    <form id="save-form" autocomplete="off" novalidate>
+                        <label for="save-name" id="save-label">Save your current list as:</label>
+                        <div class="shop-row">
+                            <input type="text" id="save-name" placeholder="e.g. Weekly groceries">
+                            <button type="submit">Save</button>
+                        </div>
+                        <p id="save-msg" class="shop-msg"></p>
+                    </form>
+
+                    <h2 class="saved-heading">Start from a saved list</h2>
+                    <ul id="saved-lists"></ul>
+                </div>
             </div>
 
             <div class="tab-page" id="fridge">

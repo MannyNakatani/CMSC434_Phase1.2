@@ -101,3 +101,207 @@
     background: #f44336;
     color: #fff;
 }
+
+#tab6 .shop-view[hidden] { display: none; }
+
+#tab6 #shop-notice {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 12px;
+    padding: 10px 12px;
+    font-size: 16px;
+    background: #e6f2e6;
+    border-left: 4px solid #2e7d32;
+}
+
+#tab6 #shop-notice[hidden] { display: none; }
+#tab6 #shop-notice span { flex: 1; }
+
+#tab6 .notice-action {
+    height: 36px;
+    padding: 0 12px;
+    font-size: 15px;
+    border: 2px solid #2e7d32;
+    background: #fff;
+    color: #1b5e20;
+    cursor: pointer;
+}
+
+#tab6 .shop-empty {
+    padding: 16px 12px;
+    font-size: 16px;
+    color: #555;
+    background: #f6f6f6;
+    cursor: default;
+}
+
+#tab6 .shop-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+#tab6 .shop-primary,
+#tab6 .shop-secondary {
+    height: 44px;
+    padding: 0 16px;
+    font-size: 16px;
+    border: 2px solid #000;
+    cursor: pointer;
+}
+
+#tab6 .shop-primary { background: #222; color: #fff; }
+#tab6 .shop-primary:hover { background: #444; }
+#tab6 .shop-secondary { background: #ddd; color: #000; }
+#tab6 .shop-secondary:hover { background: #ccc; }
+
+#tab6 .shop-back {
+    margin: 4px 0 0;
+    padding: 6px 0;
+    font-size: 16px;
+    background: none;
+    border: none;
+    color: #1a4fa0;
+    cursor: pointer;
+}
+
+#tab6 .shop-help {
+    margin: 0 0 12px;
+    font-size: 16px;
+    color: #444;
+}
+
+#tab6 .shop-msg {
+    min-height: 18px;
+    margin: 6px 0;
+    font-size: 15px;
+}
+
+#tab6 .shop-msg.error { color: #c00; }
+#tab6 .shop-msg.success { color: #1b5e20; }
+
+#tab6 #putaway-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#tab6 .putaway-item {
+    padding: 10px 12px;
+    background: #f6f6f6;
+    border-bottom: 1px solid #ddd;
+}
+
+#tab6 .putaway-item.has-error {
+    background: #fdeaea;
+    border-left: 4px solid #c00;
+}
+
+#tab6 .putaway-title .name { font-size: 18px; font-weight: bold; }
+#tab6 .putaway-title .qty { margin-left: 8px; font-size: 14px; color: #555; }
+
+#tab6 .putaway-fields {
+    display: flex;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+#tab6 .putaway-field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 14px;
+    color: #444;
+}
+
+#tab6 .putaway-field input,
+#tab6 .putaway-field select {
+    height: 40px;
+    padding: 0 8px;
+    font-size: 16px;
+    border: 1px solid #888;
+    background: #fff;
+}
+
+#tab6 #putaway-leftover {
+    margin: 12px 0 4px;
+    font-size: 15px;
+    color: #444;
+}
+
+#tab6 #putaway-confirm { width: 100%; }
+
+#tab6 #save-form {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px;
+    background: #f6f6f6;
+}
+
+#tab6 #save-form label { font-size: 16px; }
+
+#tab6 #save-form input {
+    flex: 1;
+    height: 40px;
+    padding: 0 8px;
+    font-size: 16px;
+    border: 1px solid #888;
+}
+
+#tab6 #save-form button {
+    height: 40px;
+    padding: 0 16px;
+    font-size: 16px;
+    border: 2px solid #000;
+    background: #ddd;
+    cursor: pointer;
+}
+
+#tab6 .saved-heading {
+    margin: 16px 0 8px;
+    font-size: 20px;
+}
+
+#tab6 #saved-lists {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#tab6 .saved-card {
+    margin-bottom: 10px;
+    padding: 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+
+#tab6 .saved-card h3 { margin: 0 0 4px; font-size: 18px; }
+
+#tab6 .saved-preview {
+    margin: 0 0 10px;
+    font-size: 15px;
+    color: #555;
+}
+
+#tab6 .saved-actions {
+    display: flex;
+    gap: 8px;
+}
+
+#tab6 .saved-actions .shop-primary { flex: 1; }
+
+#tab6 .saved-delete {
+    height: 44px;
+    padding: 0 14px;
+    font-size: 15px;
+    border: 2px solid #c00;
+    background: #fff;
+    color: #c00;
+    cursor: pointer;
+}
+
+#tab6 .saved-delete.confirm { background: #c00; color: #fff; }
