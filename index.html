@@ -87,7 +87,11 @@
             </div>
 
             <div class="tab-page" id="recipes">
-                <h1>Recipes</h1>
+
+                <div id="recipe-header">
+                    <h1>Recipes</h1>
+                    <button type="button" id="open-recipe-form">ADD</button>
+                </div>
 
                 <div id="recipe-search">
                     <input
@@ -111,7 +115,7 @@
 
                 <div id="recipe-results">
                     <p id="recipe-empty" hidden>
-                        No recipes found. Try another search or filter.
+                        No recipes found, try another search.
                     </p>
 
                     <section class="recipe-section" id="expiring-section">
@@ -128,6 +132,54 @@
                         <h2>All Recipes</h2>
                         <div id="all-recipes" class="recipe-list"></div>
                     </section>
+                </div>
+
+                <div id="recipe-modal" class="recipe-modal" hidden>
+
+                    <div class="recipe-modal-content">
+
+                        <h2>Add a Recipe</h2>
+
+                        <form id="add-recipe-form" autocomplete="off" novalidate>
+
+                            <label for="new-recipe-name">Recipe Name</label>
+                            <input
+                                type="text"
+                                id="new-recipe-name"
+                                placeholder="example: Pasta"
+                            >
+
+                            <label for="new-recipe-ingredients">
+                                Ingredients
+                            </label>
+                            <textarea
+                                id="new-recipe-ingredients"
+                                placeholder="Enter ingredients separated by commas"
+                                rows="4"
+                            ></textarea>
+
+                            <label for="new-recipe-time">
+                                Cooking Time (minutes)
+                            </label>
+                            <input
+                                type="number"
+                                id="new-recipe-time"
+                                placeholder="example: 30"
+                                min="1"
+                            >
+
+                            <p id="recipe-form-error"></p>
+
+                            <div id="recipe-form-buttons">
+                                <button type="submit">ADD</button>
+                                <button type="button" id="close-recipe-form">
+                                    Cancel
+                                </button>
+                            </div>
+
+                        </form>
+
+                    </div>
                 </div>
             </div>
 
