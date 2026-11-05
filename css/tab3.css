@@ -130,3 +130,125 @@
     color: #555;
     font-size: 14px;
 }
+
+/* recipes heading and the "Add" button*/
+#recipes #recipe-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+#recipes #recipe-header h1 {
+    margin: 8px 0 4px;
+}
+
+#recipes #open-recipe-form {
+    padding: 7px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 2px solid #000;
+    background: #ddd;
+    cursor: pointer;
+}
+
+#recipes #open-recipe-form:hover {
+    background: #ccc;
+}
+
+/* background of form*/
+#recipe-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+/* hide form when hidden*/
+#recipe-modal[hidden] {
+    display: none;
+}
+
+/* form content*/
+#recipe-modal .recipe-modal-content {
+    width: 100%;
+    max-width: 310px;
+    padding: 18px;
+    box-sizing: border-box;
+    background: #fafafa;
+    border-radius: 6px;
+    border: 1px solid #888;
+}
+
+#recipe-modal h2 {
+    margin: 0 0 16px;
+    font-size: 22px;
+}
+
+/* layout of the form */
+#recipe-modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#recipe-modal label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#recipe-modal input,
+#recipe-modal textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    border: 1px solid #888;
+}
+
+#recipe-modal input {
+    height: 40px;
+}
+
+#recipe-modal textarea {
+    resize: vertical;
+}
+
+/* error handling*/
+#recipe-modal #recipe-form-error {
+    margin: 0;
+    min-height: 18px;
+    font-size: 13px;
+    color: #c00;
+}
+
+/* the submit and cancel buttons*/
+#recipe-form-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+#recipe-form-buttons button {
+    flex: 1;
+    height: 40px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 2px solid #000;
+    background: #ddd;
+    cursor: pointer;
+}
+
+#recipe-form-buttons button:hover {
+    background: #ccc;
+}
+
