@@ -7,6 +7,16 @@ const favoriteRecipes = document.getElementById("favorite-recipes");
 const allRecipes = document.getElementById("all-recipes");
 const recipeEmpty = document.getElementById("recipe-empty");
 
+//all the elements for the recipe form to add new ones manually
+const openRecipeForm = document.getElementById("open-recipe-form");
+const closeRecipeForm = document.getElementById("close-recipe-form");
+const recipeModal = document.getElementById("recipe-modal");
+const addRecipeForm = document.getElementById("add-recipe-form");
+const newRecipeName = document.getElementById("new-recipe-name");
+const newRecipeIngredients = document.getElementById("new-recipe-ingredients");
+const newRecipeTime = document.getElementById("new-recipe-time");
+const recipeFormError = document.getElementById("recipe-form-error");
+
 //example recipe data
 //available represents whether an ingredient is in the fridge
 //expiringDays is null if the ingredient is not expiring soon
@@ -25,7 +35,7 @@ const recipes = [
     },
 
     {
-        id: 4,
+        id: 2,
         name: "Pancakes",
         time: 20,
         favorite: false,
@@ -35,8 +45,9 @@ const recipes = [
             { name: "Eggs", available: true, expiringDays: null }
         ]
     },
+    
     {
-        id: 5,
+        id: 3,
         name: "Grilled Cheese",
         time: 10,
         favorite: false,
@@ -44,6 +55,18 @@ const recipes = [
             { name: "Bread", available: true, expiringDays: null },
             { name: "Cheese", available: true, expiringDays: null },
             { name: "Butter", available: false, expiringDays: null }
+        ]
+    },
+
+    {
+        id: 4,
+        name: "Green Eggs and Ham",
+        time: 30,
+        favorite: false,
+        ingredients: [
+            { name: "Eggs", available: true, expiringDays: null },
+            { name: "Ham", available: true, expiringDays: null },
+            { name: "Sauce", available: false, expiringDays: 4 }
         ]
     }
 ];
@@ -234,3 +257,92 @@ document.getElementById("recipe-results").addEventListener(
 
 //display the example
 renderRecipes();
+
+//opening the pop up for adding recipes form
+openRecipeForm.addEventListener("click", function () {
+    recipeModal.hidden = false;
+    newRecipeName.focus();
+});
+
+//close and clear form
+function closeRecipeModal() {
+    recipeModal.hidden = true;
+    addRecipeForm.reset();
+    recipeFormError.textContent = "";
+}
+
+closeRecipeForm.addEventListener("click", closeRecipeModal);
+
+//add the recipe to the list of recipes upon submission
+addRecipeForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const name = newRecipeName.value.trim();
+    const ingredientText = newRecipeIngredients.value.trim();
+    const time = Number(newRecipeTime.value);
+
+    //name validation
+    if (!name) {
+        recipeFormError.textContent = "Enter a recipe name";
+        newRecipeName.focus();
+        return;
+    }
+
+    //mandatory inclusion of ingredients
+    if (!ingredientText) {
+        recipeFormError.textContent = "Enter at least one ingredient";
+        newRecipeIngredients.focus();
+        return;
+    }
+
+    //input validation for time being only numbers
+    if (!newRecipeTime.value || !Number.isInteger(time) || time < 1) {
+        recipeFormError.textContent =
+            "Cooking time must be a positive whole number";
+        newRecipeTime.focus();
+        return;
+    }
+
+    //convert the list of ingredients separated by comma into an array
+    const ingredientNames = ingredientText.split(",");
+
+    const ingredients = ingredientNames
+        .map(function (ingredient) {
+            return ingredient.trim();
+        })
+        .filter(function (ingredient) {
+            return ingredient.length > 0;
+        });
+
+    if (ingredients.length === 0) {
+        recipeFormError.textContent = "Enter at least one ingredient";
+        newRecipeIngredients.focus();
+        return;
+    }
+
+    //create the new recipe
+    const newRecipe = {
+        id: Date.now(),
+        name: name,
+        time: time,
+        favorite: false,
+
+        ingredients: ingredients.map(function (ingredient) {
+            return {
+                name: ingredient,
+                available: false,
+                expiringDays: null
+            };
+        })
+    };
+
+    //add the new recipe to list of existing ones
+    recipes.push(newRecipe);
+
+    //refresh the recipe screen
+    renderRecipes();
+
+    //close the form and clear for another use
+    closeRecipeModal();
+});
+
