@@ -183,8 +183,28 @@
                 </div>
             </div>
 
-            <div class="tab-page" id="household">
-                <h1>Household</h1>
+            <div class="tab-page calendar-page" id="calendar">
+                <div class="calendar-header">
+                    <h1>Calendar</h1>
+                    <p id="calendar-month" class="calendar-month"></p>
+                </div>
+
+                <div class="calendar-weekdays">
+                    <span>Sun</span>
+                    <span>Mon</span>
+                    <span>Tue</span>
+                    <span>Wed</span>
+                    <span>Thu</span>
+                    <span>Fri</span>
+                    <span>Sat</span>
+                </div>
+
+                <div id="calendar-grid" class="calendar-grid"></div>
+
+                <div class="calendar-list-wrap">
+                    <h2>Expiring soon</h2>
+                    <ul id="calendar-list" class="calendar-list"></ul>
+                </div>
             </div>
         </div>
 
@@ -204,9 +224,9 @@
                 <span>Recipes</span>
             </button>
 
-            <button class="tablink" onclick="openTab(event, 'household')">
-                <img class="nav-icon" src="images/user.png" alt="">
-                <span>Household</span>
+            <button class="tablink" onclick="openTab(event, 'calendar')">
+                <img class="nav-icon" src="images/calendar.png" alt="">
+                <span>Calendar</span>
             </button>
         </nav>
     </div>
@@ -215,5 +235,6 @@
 <script src="js/tab3.js"></script>
 <script src="js/tab6.js"></script>
 <script src="js/fridge.js"></script>
+<script src="js/calendar.js"></script>
 </body>
 </html>
